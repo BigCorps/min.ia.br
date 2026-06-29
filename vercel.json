@@ -1,0 +1,14 @@
+{
+   "version": 2,
+   "cleanUrls": true,
+   "trailingSlash": false,
+  "redirects": [
+    { "source": "/app/:path*", "destination": "https://app.min.ia.br/app/:path*", "permanent": false }
+  ],
+   "rewrites": [
+     {
+       "source": "/(.*)",
+       "destination": "/index.html"
+     }
+   ]
+ }
