@@ -109,7 +109,7 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-col gap-3 w-full">
-            <a href="https://min.ia.br/app">
+            <a href="https://min.ia.br/">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-blue-500 to-emerald-500 hover:opacity-90 text-white font-semibold group w-full"
