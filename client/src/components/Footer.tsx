@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="container">
         <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-center">
           <p className="text-sm font-medium">
-            © {currentYear} min.IA.br |
+            © {currentYear} min.IA.br
           </p>
           <span className="hidden md:inline text-gray-300">|</span>
           <p className="text-sm font-medium">
