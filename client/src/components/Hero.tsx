@@ -109,7 +109,7 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-col gap-3 w-full">
-            <a href="https://min.ia.br/">
+            <a href="https://app.min.ia.br/">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-blue-500 to-emerald-500 hover:opacity-90 text-white font-semibold group w-full"
@@ -118,7 +118,7 @@ export default function Hero() {
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </a>
-            <a href="https://min.ia.br/login">
+            <a href="https://app.min.ia.br/login">
               <Button
                 size="lg"
                 variant="outline"
