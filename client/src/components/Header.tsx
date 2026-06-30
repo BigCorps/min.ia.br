@@ -15,10 +15,10 @@ export default function Header() {
 
         {/* CTAs */}
         <div className="flex items-center gap-3">
-          <a href="https://min.ia.br/login" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition">
+          <a href="https://app.min.ia.br/login" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition">
             Entrar
           </a>
-          <a href="https://min.ia.br">
+          <a href="https://app.min.ia.br">
             <Button
               size="sm"
               className="bg-gradient-to-r from-blue-500 to-emerald-500 hover:opacity-90 text-white font-semibold group"
