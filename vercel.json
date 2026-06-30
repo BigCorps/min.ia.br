@@ -3,7 +3,7 @@
    "cleanUrls": true,
    "trailingSlash": false,
   "redirects": [
-    { "source": "/app/:path*", "destination": "https://app.min.ia.br/app/:path*", "permanent": false }
+    { "source": "/min/:path*", "destination": "https://app.min.ia.br/min/:path*", "permanent": false }
   ],
    "rewrites": [
      {
