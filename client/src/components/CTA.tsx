@@ -20,8 +20,8 @@ export default function CTA() {
               <div className="flex justify-center">
                 <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
             <img
-              src="/arte.png"
-              alt="ArteFinal"
+              src="/logi.png"
+              alt="min.IA"
               className="w-full h-full object-contain"
             />
           </div>
