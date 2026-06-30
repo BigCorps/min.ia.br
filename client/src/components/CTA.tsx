@@ -12,15 +12,19 @@ export default function CTA() {
             <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full blur-3xl" />
           </div>
-
+          
           {/* Content */}
           <div className="relative z-10 px-6 md:px-12 py-16 md:py-24 text-center">
             <div className="space-y-6 max-w-2xl mx-auto">
               {/* Icon */}
               <div className="flex justify-center">
                 <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
-                  <Sparkles className="w-8 h-8 text-white" />
-                </div>
+            <img
+              src="/arte.png"
+              alt="ArteFinal"
+              className="w-full h-full object-contain"
+            />
+          </div>
               </div>
 
               {/* Title */}
