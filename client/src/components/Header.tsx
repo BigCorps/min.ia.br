@@ -3,15 +3,21 @@ import { Button } from '@/components/ui/button';
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
-      <div className="container flex items-center justify-between py-4">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
+      <div className="container flex items-center justify-between h-16">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-white" />
+        <a href="/" className="flex items-center gap-2.5 group">
+          <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
+            <img
+              src="/logo.png"
+              alt="min.IA"
+              className="w-full h-full object-contain"
+            />
           </div>
-          <span className="text-lg font-bold text-gray-900">min.IA</span>
-        </div>
+          <span className="font-display font-bold text-lg text-gray-900 group-hover:text-cyan-600 transition-colors">
+            min.IA
+          </span>
+        </a>
 
         {/* CTAs */}
         <div className="flex items-center gap-3">
