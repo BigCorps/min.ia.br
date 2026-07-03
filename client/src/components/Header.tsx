@@ -24,7 +24,7 @@ export default function Header() {
       min.IA
     </span>
     <span className="block text-[10px] text-gray-400 font-normal">
-      by minhAi
+      A versão mini e pessoal da minhAi
     </span>
   </div>
 </a>

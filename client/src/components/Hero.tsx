@@ -102,7 +102,7 @@ export default function Hero() {
   return (
     <>
       {/* ── Hero principal ─────────────────────────────────────────── */}
-      <section className="relative bg-white pt-6 pb-10 md:pt-8 md:pb-16 overflow-hidden">
+      <section className="relative bg-white pt-10 pb-10 md:pt-14 md:pb-16 overflow-hidden">
         {/* Decoração de fundo — sutil, não dominante */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -top-40 -right-40 w-[480px] h-[480px] rounded-full bg-gradient-to-br from-blue-50 to-emerald-50 blur-3xl opacity-60" />
