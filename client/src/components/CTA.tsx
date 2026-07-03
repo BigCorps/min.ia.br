@@ -104,7 +104,7 @@ export default function CTA() {
 
         {/* Rodapé da seção */}
         <p className="text-center text-xs text-gray-400 mt-10 max-w-sm mx-auto leading-relaxed">
-          O Min.IA usa o mesmo saldo de créditos da minhAi. Créditos comprados em um funcionam no outro.
+          a min.IA usa o mesmo saldo de créditos da minhAi. Créditos comprados em um funcionam no outro.
         </p>
 
       </div>

@@ -7,7 +7,7 @@ const MINHAI_URL = 'https://minhai.app';
 
 // Amostra real de funções por categoria — mostra concretamente o que o produto faz
 const FUNCTION_PREVIEW = [
-  { cat: 'Financeiro',    color: '#3B82F6', fns: ['Gerar PIX', 'Link de Pagamento', 'Consultar Câmbio'] },
+  { cat: 'Localização',   color: '#3B82F6', fns: ['Buscar Endereço', 'Consultar CEP', 'Traçar Rota'] },
   { cat: 'Agendamento',   color: '#10B981', fns: ['Marcar Evento', 'Ver Agenda', 'Cancelar Consulta'] },
   { cat: 'Consultas',     color: '#6366F1', fns: ['Dados de CNPJ', 'Consultar CPF', 'Consultar Placa'] },
   { cat: 'Arquivos',      color: '#F59E0B', fns: ['Editar Imagem', 'Converter Arquivo', 'Remover Fundo'] },
