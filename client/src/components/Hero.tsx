@@ -12,7 +12,7 @@ const FUNCTION_PREVIEW = [
   { cat: 'Consultas',     color: '#6366F1', fns: ['Dados de CNPJ', 'Consultar CPF', 'Consultar Placa'] },
   { cat: 'Arquivos',      color: '#F59E0B', fns: ['Editar Imagem', 'Converter Arquivo', 'Remover Fundo'] },
   { cat: 'Câmera',        color: '#EF4444', fns: ['Ler QR Code', 'Ler Código de Barras', 'Imagem em Texto'] },
-  { cat: 'Utilitários',   color: '#8B5CF6', fns: ['Traduzir Texto', 'Rastrear Correios', 'Clima e Tempo'] },
+  { cat: 'Utilitários',   color: '#8B5CF6', fns: ['Emitir Nota Fiscal', 'Lembrete de eEmédios', 'Criar Anotação'] },
 ];
 
 // Carrossel de categorias — usado abaixo do hero como transição
