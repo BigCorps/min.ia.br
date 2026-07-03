@@ -1,36 +1,49 @@
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+const APP_URL = 'https://app.min.ia.br';
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
       <div className="container flex items-center justify-between h-16">
-        {/* Logo */}
-        <a href="/" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
+
+        {/* Marca */}
+        <a href="/" className="flex items-center gap-2.5 group" aria-label="Min.IA – Início">
+          <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
             <img
-              src="/logo.png"
-              alt="min.IA"
-              className="w-full h-full object-contain"
+              src="/minia/logo.png"
+              alt="Min.IA"
+              className="w-full h-full object-cover"
+              width={36}
+              height={36}
             />
           </div>
-          <span className="font-display font-bold text-lg text-gray-900 group-hover:text-cyan-600 transition-colors">
-            min.IA
-          </span>
+          <div className="leading-tight">
+            <span className="block text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+              Min.IA
+            </span>
+            <span className="block text-[10px] text-gray-400 font-normal">
+              by minhAi
+            </span>
+          </div>
         </a>
 
-        {/* CTAs */}
+        {/* Ações */}
         <div className="flex items-center gap-3">
-          <a href="https://app.min.ia.br/login" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition">
+          <a
+            href={`${APP_URL}/min/login`}
+            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors hidden sm:block"
+          >
             Entrar
           </a>
-          <a href="https://app.min.ia.br">
+          <a href={`${APP_URL}/min`}>
             <Button
               size="sm"
-              className="bg-gradient-to-r from-blue-500 to-emerald-500 hover:opacity-90 text-white font-semibold group"
+              className="bg-gradient-to-r from-blue-500 to-emerald-500 hover:opacity-90 text-white font-semibold group shadow-sm"
             >
-              Começar Grátis
-              <ArrowRight size={16} className="ml-1.5 group-hover:translate-x-0.5 transition-transform" />
+              Começar grátis
+              <ArrowRight size={15} className="ml-1.5 group-hover:translate-x-0.5 transition-transform" />
             </Button>
           </a>
         </div>

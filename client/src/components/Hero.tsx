@@ -1,238 +1,241 @@
-import { ArrowRight, Sparkles, Zap, Brain, Shield, Rocket } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
-const CATEGORIES = [
-  { name: 'Conhecimento', icon: Brain },
-  { name: 'Comercial', icon: Zap },
-  { name: 'Financeiro', icon: Shield },
-  { name: 'Informação', icon: Rocket },
-  { name: 'Multimídia', icon: Sparkles },
-  { name: 'Agendamento', icon: Brain },
-  { name: 'Contato', icon: Zap },
-  { name: 'Localização', icon: Shield },
+const APP_URL = 'https://app.min.ia.br';
+const MINHAI_URL = 'https://minhai.app';
+
+// Amostra real de funções por categoria — mostra concretamente o que o produto faz
+const FUNCTION_PREVIEW = [
+  { cat: 'Financeiro',    color: '#3B82F6', fns: ['Gerar PIX', 'Link de Pagamento', 'Consultar Câmbio'] },
+  { cat: 'Agendamento',   color: '#10B981', fns: ['Marcar Evento', 'Ver Agenda', 'Cancelar Consulta'] },
+  { cat: 'Consultas',     color: '#6366F1', fns: ['Dados de CNPJ', 'Consultar CPF', 'Consultar Placa'] },
+  { cat: 'Arquivos',      color: '#F59E0B', fns: ['Editar Imagem', 'Converter Arquivo', 'Remover Fundo'] },
+  { cat: 'Câmera',        color: '#EF4444', fns: ['Ler QR Code', 'Ler Código de Barras', 'Imagem em Texto'] },
+  { cat: 'Utilitários',   color: '#8B5CF6', fns: ['Traduzir Texto', 'Rastrear Correios', 'Clima e Tempo'] },
+];
+
+// Carrossel de categorias — usado abaixo do hero como transição
+const ALL_CATEGORIES = [
+  'Conhecimento', 'Comercial', 'Financeiro', 'Informação',
+  'Multimídia', 'Agendamento', 'Contato', 'Localização',
+  'Consultas', 'Identificação', 'Arquivos', 'Utilitários', 'Câmera', 'Serviços',
 ];
 
 function CategoryCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const animate = () => {
-      if (!isPaused) {
-        track.style.animation = `carousel-scroll 40s linear infinite`;
-      }
-    };
-
-    animate();
-  }, [isPaused]);
+  const [paused, setPaused] = useState(false);
+  const duplicated = [...ALL_CATEGORIES, ...ALL_CATEGORIES, ...ALL_CATEGORIES];
 
   return (
     <div
-      className="w-full overflow-hidden py-4 -mx-4 px-4"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      className="w-full overflow-hidden py-3"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
     >
       <div
         ref={trackRef}
-        className="flex gap-3 w-max"
+        className="flex gap-2.5 w-max"
         style={{
-          animation: `carousel-scroll 40s linear infinite`,
-          animationPlayState: isPaused ? 'paused' : 'running',
+          animation: 'cat-scroll 35s linear infinite',
+          animationPlayState: paused ? 'paused' : 'running',
           willChange: 'transform',
         }}
       >
-        {Array.from({ length: 4 }).map((_, copyIdx) =>
-          CATEGORIES.map((cat, idx) => {
-            const Icon = cat.icon;
-            return (
-              <div
-                key={`${copyIdx}-${idx}`}
-                className="flex-shrink-0 px-4 py-2 rounded-full border border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50 transition-all cursor-pointer group active:scale-95"
-              >
-                <div className="flex items-center gap-2">
-                  <Icon className="w-4 h-4 text-blue-500 group-hover:text-emerald-500 transition-colors" />
-                  <span className="text-sm font-medium text-gray-700 whitespace-nowrap">{cat.name}</span>
-                </div>
-              </div>
-            );
-          })
-        )}
+        {duplicated.map((cat, idx) => (
+          <span
+            key={idx}
+            className="flex-shrink-0 px-4 py-1.5 rounded-full border border-gray-200 bg-white text-sm font-medium text-gray-700 whitespace-nowrap hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default"
+          >
+            {cat}
+          </span>
+        ))}
       </div>
-
       <style>{`
-        @keyframes carousel-scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-${(100 / 4).toFixed(2)}%); }
+        @keyframes cat-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-${(100 / 3).toFixed(3)}%); }
         }
       `}</style>
     </div>
   );
 }
 
+function FunctionGrid() {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {FUNCTION_PREVIEW.map((group) => (
+        <div
+          key={group.cat}
+          className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm"
+        >
+          <p
+            className="text-xs font-bold uppercase tracking-wider mb-2.5"
+            style={{ color: group.color }}
+          >
+            {group.cat}
+          </p>
+          <ul className="space-y-1.5">
+            {group.fns.map((fn) => (
+              <li key={fn} className="flex items-center gap-2 text-sm text-gray-700">
+                <span
+                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                  style={{ background: group.color }}
+                />
+                {fn}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+const TRUST = [
+  '20 créditos grátis para testar',
+  'Sem cartão de crédito',
+  'Funciona no celular e no computador',
+];
+
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-32 pb-20 md:pt-40 md:pb-32">
-      {/* Background gradient decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-emerald-400/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-blue-400/10 to-emerald-400/10 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container relative z-10">
-        {/* Mobile Layout */}
-        <div className="md:hidden flex flex-col items-center text-center gap-8">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full border border-blue-200">
-            <Sparkles size={16} className="text-blue-600" />
-            <span className="text-sm font-semibold text-blue-700">powered by minhAi</span>
-          </div>
-
-          {/* Title */}
-          <div className="space-y-3">
-            <h1 className="text-4xl font-bold text-gray-900 leading-tight">
-              Seu assistente pessoal,{' '}
-              <span className="bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent">
-                sem restrições
-              </span>
-            </h1>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Acesso a todas as funções — até as ocultas para seus clientes. Execute qualquer tarefa em segundos.
-            </p>
-          </div>
-
-          {/* Carousel */}
-          <CategoryCarousel />
-
-          {/* CTAs */}
-          <div className="flex flex-col gap-3 w-full">
-            <a href="https://app.min.ia.br/">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-500 to-emerald-500 hover:opacity-90 text-white font-semibold group w-full"
-              >
-                Começar Grátis
-                <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </a>
-            <a href="https://app.min.ia.br/login">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold w-full"
-              >
-                Entrar
-              </Button>
-            </a>
-          </div>
-
-          {/* Trust indicators */}
-          <div className="space-y-3 pt-4 text-sm text-gray-600">
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
-                <span className="text-green-700 font-bold text-xs">✓</span>
-              </div>
-              Sem cartão de crédito necessário
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
-                <span className="text-green-700 font-bold text-xs">✓</span>
-              </div>
-              20 créditos grátis para começar
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
-                <span className="text-green-700 font-bold text-xs">✓</span>
-              </div>
-              Acesso imediato a todas as funções
-            </div>
-          </div>
+    <>
+      {/* ── Hero principal ─────────────────────────────────────────── */}
+      <section className="relative bg-white pt-20 pb-12 md:pt-28 md:pb-20 overflow-hidden">
+        {/* Decoração de fundo — sutil, não dominante */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-[480px] h-[480px] rounded-full bg-gradient-to-br from-blue-50 to-emerald-50 blur-3xl opacity-60" />
         </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden md:grid md:grid-cols-2 gap-12 items-center">
-          {/* Left: Content */}
-          <div className="space-y-8">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full border border-blue-200 w-fit">
-              <Sparkles size={16} className="text-blue-600" />
-              <span className="text-sm font-semibold text-blue-700">powered by minhAi</span>
-            </div>
+        <div className="container relative z-10">
+          {/* Mobile */}
+          <div className="md:hidden flex flex-col gap-8 text-center items-center">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs font-semibold text-blue-700">
+              Powered by minhAi
+            </span>
 
-            {/* Title */}
             <div className="space-y-4">
-              <h1 className="text-5xl font-bold text-gray-900 leading-tight">
-                Seu assistente pessoal,{' '}
+              <h1 className="text-4xl font-bold text-gray-900 leading-tight tracking-tight">
+                A sua IA pessoal.{' '}
                 <span className="bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent">
-                  sem restrições
+                  100 funções, uma conversa.
                 </span>
               </h1>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Acesso a todas as funções — até as ocultas para seus clientes. Execute qualquer tarefa em segundos. Gerenciador completo dos seus assistentes de atendimento.
+              <p className="text-base text-gray-500 leading-relaxed max-w-sm mx-auto">
+                Execute pagamentos, consultas, agendamentos, traduções, edição de arquivos e muito
+                mais — diretamente pelo chat, sem abrir o dashboard.
               </p>
             </div>
 
-            {/* CTAs */}
-            <div className="flex gap-4 pt-4">
-              <a href="https://min.ia.br/app">
+            <div className="flex flex-col gap-2.5 w-full max-w-xs">
+              <a href={`${APP_URL}/min`} className="w-full">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-blue-500 to-emerald-500 hover:opacity-90 text-white font-semibold group"
+                  className="w-full bg-gradient-to-r from-blue-500 to-emerald-500 hover:opacity-90 text-white font-semibold group shadow-md"
                 >
-                  Começar Grátis
-                  <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  Começar grátis
+                  <ArrowRight size={17} className="ml-2 group-hover:translate-x-0.5 transition-transform" />
                 </Button>
               </a>
-              <a href="https://min.ia.br/login">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold"
-                >
-                  Entrar
+              <a href={`${APP_URL}/min/login`} className="w-full">
+                <Button size="lg" variant="outline" className="w-full border-gray-200 text-gray-700 font-semibold">
+                  Já tenho conta
                 </Button>
               </a>
             </div>
 
-            {/* Trust indicators */}
-            <div className="flex flex-col gap-3 pt-4 text-sm text-gray-600">
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
-                  <span className="text-green-700 font-bold text-xs">✓</span>
-                </div>
-                Sem cartão de crédito necessário
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
-                  <span className="text-green-700 font-bold text-xs">✓</span>
-                </div>
-                20 créditos grátis para começar
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
-                  <span className="text-green-700 font-bold text-xs">✓</span>
-                </div>
-                Acesso imediato a todas as funções
-              </div>
-            </div>
+            <ul className="space-y-2">
+              {TRUST.map((t) => (
+                <li key={t} className="flex items-center justify-center gap-2 text-sm text-gray-500">
+                  <Check size={15} className="text-emerald-500 flex-shrink-0" />
+                  {t}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Right: Carousel */}
-          <div className="flex items-center justify-center">
-            <div className="w-full max-w-md">
-              <div className="rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-8 shadow-lg">
-                <div className="space-y-4">
-                  <h3 className="text-sm font-semibold text-gray-900">Categorias de Funções</h3>
-                  <CategoryCarousel />
-                </div>
+          {/* Desktop: 2 colunas */}
+          <div className="hidden md:grid grid-cols-2 gap-14 items-start">
+            {/* Esquerda */}
+            <div className="space-y-8 pt-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs font-semibold text-blue-700">
+                Powered by minhAi
+              </span>
+
+              <div className="space-y-5">
+                <h1 className="text-[2.75rem] font-bold text-gray-900 leading-tight tracking-tight">
+                  A sua IA pessoal.<br />
+                  <span className="bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent">
+                    100 funções, uma conversa.
+                  </span>
+                </h1>
+                <p className="text-lg text-gray-500 leading-relaxed">
+                  Execute pagamentos, consultas, agendamentos, traduções, edição de arquivos e
+                  muito mais — diretamente pelo chat, sem abrir o dashboard completo.
+                </p>
               </div>
+
+              <div className="flex gap-3">
+                <a href={`${APP_URL}/min`}>
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-blue-500 to-emerald-500 hover:opacity-90 text-white font-semibold group shadow-md"
+                  >
+                    Começar grátis
+                    <ArrowRight size={17} className="ml-2 group-hover:translate-x-0.5 transition-transform" />
+                  </Button>
+                </a>
+                <a href={`${APP_URL}/min/login`}>
+                  <Button size="lg" variant="outline" className="border-gray-200 text-gray-700 font-semibold">
+                    Já tenho conta
+                  </Button>
+                </a>
+              </div>
+
+              <ul className="space-y-2.5">
+                {TRUST.map((t) => (
+                  <li key={t} className="flex items-center gap-2 text-sm text-gray-500">
+                    <Check size={15} className="text-emerald-500 flex-shrink-0" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Bridge para minhAi — sutil, sem competir com o CTA principal */}
+              <div className="pt-2 border-t border-gray-100">
+                <p className="text-sm text-gray-400">
+                  Quer um assistente de IA para o seu negócio?{' '}
+                  <a
+                    href={MINHAI_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-blue-600 hover:underline"
+                  >
+                    Conheça a minhAi →
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            {/* Direita: grade de funções reais */}
+            <div>
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                O que você pode fazer
+              </p>
+              <FunctionGrid />
+              <p className="text-xs text-gray-400 mt-4 text-right">
+                + 80 outras funções disponíveis
+              </p>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ── Carrossel de categorias — transição visual ─────────────── */}
+      <div className="border-y border-gray-100 bg-gray-50/50 py-1">
+        <CategoryCarousel />
       </div>
-    </section>
+    </>
   );
 }

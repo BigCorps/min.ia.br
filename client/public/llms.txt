@@ -1,0 +1,55 @@
+# Min.IA
+
+> Min.IA é o painel pessoal da minhAi — uma interface de chat que dá acesso direto a mais de 100 funções de inteligência artificial para donos de negócio, sem precisar abrir o dashboard completo da plataforma.
+
+## O que é
+
+Min.IA é desenvolvido pela BigCorps Tecnologia LTDA (CNPJ 14.282.244/0001-19), a mesma empresa que criou a minhAi. É acessado em https://app.min.ia.br pelo navegador, no celular ou computador, sem instalação.
+
+A landing page institucional fica em https://min.ia.br.
+
+## Relação com a minhAi
+
+Min.IA e minhAi compartilham a mesma conta de usuário e o mesmo saldo de créditos. Quem cria uma conta na minhAi (https://minhai.app) automaticamente tem acesso ao Min.IA com o mesmo login.
+
+- **minhAi**: plataforma para configurar assistentes de IA para atendimento ao cliente (WhatsApp, Instagram, totem, WebApp). Voltada para o negócio.
+- **Min.IA**: interface pessoal do dono para executar qualquer função rapidamente via chat, sem passar pelo dashboard.
+
+## Funções disponíveis
+
+Mais de 100 funções organizadas em categorias:
+
+- **Financeiro**: Gerar PIX (Banco Inter), Link de Pagamento (InfinitePay), NFC/TAP Crédito e Débito (Mercado Pago), Consultar Câmbio
+- **Agendamento**: Marcar Evento no Google Calendar, Ver Agenda, Cancelar Agendamento, Reagendar, Confirmar Presença
+- **Consultas**: Dados de CNPJ (Receita Federal), Consultar CPF, Consultar Placa, Restrições CPF/CNPJ, Consultar CEP, Feriados Nacionais, Consultar DDD
+- **Câmera**: Ler QR Code, Ler Código de Barras, Imagem em Texto (OCR), Identificar Fraude em documentos
+- **Arquivos**: Editar Imagem, Remover Fundo, Converter Arquivo, Duplicar Imagem, Analisar Planilha
+- **Utilitários**: Traduzir Texto, Rastrear Correios, Clima e Tempo, Traçar Rota, Buscar Endereço, Relógio Mundial
+- **Comunicação**: Enviar Email, Gerar QR Code, Gerar Código de Barras
+- **IA**: Perguntas Gerais (GPT-4o), Texto em Áudio, Transcrever Vídeo, Criar Mídia
+
+## Preços
+
+Min.IA usa o modelo de créditos da minhAi (Smart). Novos usuários recebem 20 créditos gratuitos ao criar conta. Sem cartão de crédito para começar. Créditos comprados na minhAi funcionam no Min.IA e vice-versa.
+
+## Tecnologia
+
+- Frontend: Next.js 16 (App Router) hospedado na Vercel
+- Backend: Supabase (PostgreSQL + Edge Functions em Deno)
+- IA: OpenAI GPT-4o, Groq (Llama), Google STT/TTS Neural2 pt-BR
+- Integrações: Banco Inter (PIX), InfinitePay, Mercado Pago, Google Calendar/Gmail/Drive/Meet/Maps, Meta (WhatsApp/Instagram/Facebook), BrasilNFE
+
+## Empresa
+
+BigCorps Tecnologia LTDA  
+Rua Saguairu, 925 — São Paulo, SP — 02514-000 — Brasil  
+Contato: contato@bigcorps.com.br  
+Site: https://bigcorps.com.br
+
+## Links
+
+- App: https://app.min.ia.br/min
+- Login: https://app.min.ia.br/min/login
+- minhAi: https://minhai.app
+- Termos de Uso: https://app.min.ia.br/min/termos
+- Aviso de Privacidade: https://app.min.ia.br/min/aviso

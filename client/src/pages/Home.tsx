@@ -4,12 +4,6 @@ import Features from '@/components/Features';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 
-/**
- * Home Page
- * Landing page for min.IA - Seu Assistente Pessoal Inteligente
- * Minimalismo Técnico Elegante design approach
- */
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
