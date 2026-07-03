@@ -1,4 +1,4 @@
-import { MessageSquare, SlidersHorizontal, Zap, Building2, User } from 'lucide-react';
+import { MessageSquare, SlidersHorizontal, Zap, Building2, User, CreditCard, CalendarDays, Search, Camera, Languages, MapPin, type LucideIcon } from 'lucide-react';
 
 const MINHAI_URL = 'https://minhai.app';
 const APP_URL    = 'https://app.min.ia.br';
@@ -9,14 +9,14 @@ const STEPS = [
     num: '01',
     icon: User,
     title: 'Crie sua conta minhAi',
-    desc: 'Uma única conta dá acesso ao Min.IA e à plataforma completa para o seu negócio. Gratuito para começar — sem cartão.',
+    desc: 'Uma única conta dá acesso a min.IA e à plataforma completa para o seu negócio. Gratuito para começar — sem cartão.',
     color: '#3B82F6',
   },
   {
     num: '02',
     icon: SlidersHorizontal,
     title: 'Escolha o assistente',
-    desc: 'Se você tiver mais de um assistente configurado na minhAi, selecione qual quer usar. O Min.IA carrega as funções e o contexto dele.',
+    desc: 'Se você tiver mais de um assistente configurado na minhAi, selecione qual quer usar. A min.IA carrega as funções e o contexto dele.',
     color: '#6366F1',
   },
   {
@@ -28,7 +28,7 @@ const STEPS = [
   },
 ];
 
-// ── Comparativo Min.IA vs minhAi ──────────────────────────────────────────
+// ── Comparativo min.IA vs minhAi ──────────────────────────────────────────
 const MINIA_POINTS = [
   'Interface pessoal por chat',
   'Acesso às suas +100 funções',
@@ -46,37 +46,13 @@ const MINHAI_POINTS = [
 ];
 
 // ── Casos de uso reais ────────────────────────────────────────────────────
-const USE_CASES = [
-  {
-    emoji: '💳',
-    title: 'Cobrar no PIX em segundos',
-    desc: 'Toque em "Gerar PIX", informe o valor. QR Code pronto para compartilhar.',
-  },
-  {
-    emoji: '📅',
-    title: 'Checar a agenda do dia',
-    desc: 'Toque em "Ver Agenda". O Google Calendar do assistente aparece no chat.',
-  },
-  {
-    emoji: '🔍',
-    title: 'Consultar um CNPJ ou CPF',
-    desc: 'Digite o número ou toque em "Dados CNPJ". Resultado da Receita Federal na hora.',
-  },
-  {
-    emoji: '📷',
-    title: 'Ler um QR Code ou código de barras',
-    desc: 'Toque em "Ler QR Code". A câmera abre. Aponte e pronto.',
-  },
-  {
-    emoji: '🌐',
-    title: 'Traduzir um texto',
-    desc: 'Toque em "Traduzir Texto", cole o conteúdo, escolha o idioma.',
-  },
-  {
-    emoji: '🗺️',
-    title: 'Traçar rota até o cliente',
-    desc: 'Toque em "Traçar Rota", informe o destino. Abre direto no Maps.',
-  },
+const USE_CASES: { Icon: LucideIcon; color: string; title: string; desc: string }[] = [
+  { Icon: CreditCard,  color: '#3B82F6', title: 'Cobrar no PIX em segundos',          desc: 'Toque em "Gerar PIX", informe o valor. QR Code pronto para compartilhar.' },
+  { Icon: CalendarDays,color: '#10B981', title: 'Checar a agenda do dia',              desc: 'Toque em "Ver Agenda". O Google Calendar do assistente aparece no chat.' },
+  { Icon: Search,      color: '#6366F1', title: 'Consultar um CNPJ ou CPF',           desc: 'Digite o número ou toque em "Dados CNPJ". Resultado da Receita Federal na hora.' },
+  { Icon: Camera,      color: '#EF4444', title: 'Ler um QR Code ou código de barras', desc: 'Toque em "Ler QR Code". A câmera abre. Aponte e pronto.' },
+  { Icon: Languages,   color: '#8B5CF6', title: 'Traduzir um texto',                  desc: 'Toque em "Traduzir Texto", cole o conteúdo, escolha o idioma.' },
+  { Icon: MapPin,      color: '#F59E0B', title: 'Traçar rota até o cliente',           desc: 'Toque em "Traçar Rota", informe o destino. Abre direto no Maps.' },
 ];
 
 export default function Features() {
@@ -93,7 +69,7 @@ export default function Features() {
               Três passos para começar
             </h2>
             <p className="text-gray-500 text-base">
-              Não tem configuração complexa. Você cria a conta, abre o Min.IA e já pode usar qualquer função.
+              Não tem configuração complexa. Você cria a conta, abre a min.IA e já pode usar qualquer função.
             </p>
           </div>
 
@@ -124,7 +100,7 @@ export default function Features() {
         </div>
       </section>
 
-      {/* ── Seção 2: Min.IA vs minhAi ───────────────────────────────── */}
+      {/* ── Seção 2: min.IA vs minhAi ───────────────────────────────── */}
       <section className="py-20 md:py-28 bg-gray-50">
         <div className="container">
           <div className="text-center mb-14 max-w-xl mx-auto space-y-3">
@@ -132,8 +108,8 @@ export default function Features() {
               Entenda a diferença
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-              Min.IA é pra você.<br />
-              minhAi é pro seu negócio.
+              a min.IA é pra você.<br />
+              e a minhAi é pro seu negócio.
             </h2>
             <p className="text-gray-500 text-base">
               Os dois andam juntos — mesma conta, mesmo saldo de créditos. Cada um tem um papel diferente.
@@ -141,14 +117,14 @@ export default function Features() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
-            {/* Card Min.IA */}
+            {/* Card min.IA */}
             <div className="rounded-2xl border-2 border-blue-100 bg-white p-7 flex flex-col gap-5">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <User size={20} className="text-blue-600" />
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900">Min.IA</p>
+                  <p className="font-bold text-gray-900">min.IA</p>
                   <p className="text-xs text-blue-600 font-semibold">Para o dono</p>
                 </div>
               </div>
@@ -164,7 +140,7 @@ export default function Features() {
                 href={`${APP_URL}/min`}
                 className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:underline"
               >
-                Abrir Min.IA →
+                Abrir min.IA →
               </a>
             </div>
 
@@ -199,7 +175,7 @@ export default function Features() {
           </div>
 
           <p className="text-center text-xs text-gray-400 mt-8">
-            Ao criar uma conta na minhAi, você já tem acesso ao Min.IA automaticamente.
+            Ao criar uma conta na minhAi, você já tem acesso a min.IA automaticamente.
           </p>
         </div>
       </section>
@@ -220,23 +196,28 @@ export default function Features() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
-            {USE_CASES.map((uc) => (
-              <div
-                key={uc.title}
-                className="flex gap-4 p-5 rounded-xl border border-gray-100 bg-gray-50/60 hover:bg-gray-50 transition-colors"
-              >
-                <span className="text-2xl flex-shrink-0 mt-0.5">{uc.emoji}</span>
-                <div>
-                  <p className="font-semibold text-gray-900 text-sm mb-1">{uc.title}</p>
-                  <p className="text-sm text-gray-500 leading-relaxed">{uc.desc}</p>
-                </div>
-              </div>
-            ))}
+{USE_CASES.map((uc) => {
+  const Icon = uc.Icon;
+  return (
+    <div key={uc.title} className="flex gap-4 p-5 rounded-xl border border-gray-100 bg-gray-50/60 hover:bg-gray-50 transition-colors">
+      <div
+        className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+        style={{ background: `${uc.color}15` }}
+      >
+        <Icon size={18} style={{ color: uc.color }} />
+      </div>
+      <div>
+        <p className="font-semibold text-gray-900 text-sm mb-1">{uc.title}</p>
+        <p className="text-sm text-gray-500 leading-relaxed">{uc.desc}</p>
+      </div>
+    </div>
+  );
+})}
           </div>
 
           <div className="mt-10 text-center">
             <p className="text-sm text-gray-400">
-              Essas são 6 dos mais de 100 casos de uso disponíveis no Min.IA.
+              Essas são 6 dos mais de 100 casos de uso disponíveis na min.IA.
             </p>
           </div>
         </div>

@@ -32,7 +32,7 @@ export default function CTA() {
                 Já tenho conta minhAi
               </p>
               <h3 className="text-2xl font-bold text-white leading-snug">
-                Abrir o Min.IA
+                Abrir a min.IA
               </h3>
               <p className="text-blue-100 text-sm mt-2 leading-relaxed">
                 Entre com sua conta e execute qualquer função — PIX, agenda, consultas, câmera e muito mais.
@@ -45,7 +45,7 @@ export default function CTA() {
                   size="lg"
                   className="w-full bg-white text-blue-600 hover:bg-blue-50 font-semibold group shadow-sm"
                 >
-                  Entrar no Min.IA
+                  Entrar no min.IA
                   <ArrowRight size={17} className="ml-2 group-hover:translate-x-0.5 transition-transform" />
                 </Button>
               </a>

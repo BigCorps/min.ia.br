@@ -12,22 +12,22 @@ export default function Header() {
         <a href="/" className="flex items-center gap-2.5 group" aria-label="Min.IA – Início">
           <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
             <img
-              src="/minia/logo.png"
-              alt="Min.IA"
+              src="/logo.png"
+              alt="min.IA"
               className="w-full h-full object-cover"
               width={36}
               height={36}
             />
-          </div>
-          <div className="leading-tight">
-            <span className="block text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-              Min.IA
-            </span>
-            <span className="block text-[10px] text-gray-400 font-normal">
-              by minhAi
-            </span>
-          </div>
-        </a>
+  </div>
+  <div className="leading-tight">
+    <span className="block text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+      min.IA
+    </span>
+    <span className="block text-[10px] text-gray-400 font-normal">
+      by minhAi
+    </span>
+  </div>
+</a>
 
         {/* Ações */}
         <div className="flex items-center gap-3">

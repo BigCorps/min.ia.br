@@ -27,17 +27,17 @@ export default function Footer() {
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
                 <img
-                  src="/minia/logo.png"
-                  alt="Min.IA"
+                  src="/logo.png"
+                  alt="min.IA"
                   className="w-full h-full object-cover"
                   width={32}
                   height={32}
                 />
               </div>
-              <span className="font-bold text-gray-900">Min.IA</span>
+              <span className="font-bold text-gray-900">min.IA</span>
             </div>
             <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
-              O painel pessoal da minhAi. Acesse mais de 100 funções de IA diretamente pelo chat, sem abrir o dashboard.
+              A min.IA é o painel pessoal da minhAi. Acesse mais de 100 funções de IA diretamente pelo chat.
             </p>
             <p className="text-xs text-gray-400 mt-1">
               Desenvolvido por{' '}
