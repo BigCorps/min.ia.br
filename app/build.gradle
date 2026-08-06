@@ -56,9 +56,9 @@ android {
     defaultConfig {
         applicationId "com.minia.app"
         minSdkVersion 21
-        targetSdkVersion 35
-        versionCode 7
-        versionName "1.0.3"
+        targetSdkVersion 36
+        versionCode 9
+        versionName "1.0.4"
 
         // The name for the application
         resValue "string", "appName", twaManifest.name
