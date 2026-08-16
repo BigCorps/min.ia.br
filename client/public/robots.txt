@@ -1,4 +1,34 @@
 User-agent: *
 Allow: /
 
+# ── Crawlers de IA ──────────────────────────────────────────────────────────
+# Liberados de propósito: é o que faz a min.IA ser citado em ChatGPT, Claude,
+# Perplexity e Gemini. A descrição estruturada está em /llms.txt.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: YouBot
+User-agent: cohere-ai
+User-agent: CCBot
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# ── Scrapers de SEO ─────────────────────────────────────────────────────────
+User-agent: SemrushBot
+User-agent: AhrefsBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: BLEXBot
+User-agent: PetalBot
+User-agent: DataForSeoBot
+Disallow: /
+
 Sitemap: https://min.ia.br/sitemap.xml
