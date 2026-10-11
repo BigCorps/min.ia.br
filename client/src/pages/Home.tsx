@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import SupportLauncher from '@/components/SupportLauncher';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <CTA />
       </main>
       <Footer />
+      <SupportLauncher />
     </div>
   );
 }
